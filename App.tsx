@@ -1,5 +1,5 @@
-import { View, StyleSheet } from "react-native";
 import "react-native-gesture-handler";
+import { View, StyleSheet } from "react-native";
 import { enableScreens } from "react-native-screens";
 import NavigationBar from "./src/global_components/navigation/NavigationBar";
 

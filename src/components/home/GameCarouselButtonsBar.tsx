@@ -1,18 +1,21 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { Mode } from "../../types/links";
 
 export default function GameCarouselButtonsBar({
   handleChangeGame,
   previous,
   next,
   navigation,
-  description,
+  mode,
+  time
 }: {
   handleChangeGame: (n: number) => void;
   previous: number;
   next: number;
   navigation: any;
-  description: string
+  mode: Mode;
+  time: number
 }) {
   return (
     <View style={styles.carouselButtonContainer}>
@@ -25,7 +28,7 @@ export default function GameCarouselButtonsBar({
       <Pressable
         style={({ pressed }) => [styles.button, styles.flexTwoFourth]}
         onPress={() =>
-          navigation.navigate("Game", { description: description })
+          navigation.navigate("Game", { time, mode })
         }
       >
         <Ionicons name="game-controller" size={20}></Ionicons>

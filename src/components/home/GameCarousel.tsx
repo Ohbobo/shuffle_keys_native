@@ -55,7 +55,8 @@ export default function GameCarousel({ links, navigation }: LinksProps & { navig
         previous={-1}
         next={1}
         navigation={navigation}
-        description={links[carouselState.currentGame].description}
+        time={links[carouselState.currentGame].time}
+        mode={links[carouselState.currentGame].mode}
       />
     </View>
   );

@@ -1,8 +1,14 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../../screens/HomeScreen";
 import GameScreen from "../../screens/GameScreen";
+import { Mode } from "../../types/links";
 
-const Stack = createStackNavigator();
+type RootStackParamList = {
+  Home: undefined;
+  Game: { time: number; mode: Mode };
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function HomeStack() {
   return (
@@ -15,7 +21,10 @@ export default function HomeStack() {
       <Stack.Screen
         name="Game"
         component={GameScreen}
-        options={{ title: "Partie" }}
+        options={{
+          title: "Partie",
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );

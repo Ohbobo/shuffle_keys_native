@@ -1,24 +1,35 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import type { RouteProp } from "@react-navigation/native";
+import { View, StyleSheet } from "react-native";
+import { Mode } from "../types/links";
+import { useIsFocused, type RouteProp } from "@react-navigation/native";
+
+import GameContainer from "../components/game/game-container/GameContainer";
+import ReduxProvider from "../components/store/ReduxProvider";
+import { useEffect } from "react";
 
 type RootStackParamList = {
-  Game: { description: string }
-}
+  Game: { mode: Mode; time: number };
+};
+type GameScreenRouteProp = RouteProp<RootStackParamList, "Game">;
 
-type GameScreenRouteProp = RouteProp<RootStackParamList, "Game">
+export default function GameScreen({ navigation, route }: { navigation: any, route: GameScreenRouteProp }) {
+  const { time, mode } = route.params;
+  const isFocused = useIsFocused(); // Vérifie si l'écran est actif
 
-export default function GameScreen({ route }: { route: GameScreenRouteProp }) {
-
-  const { description } = route.params;
-
+  useEffect(() => {
+    if (isFocused) {
+      navigation.getParent()?.setOptions({ tabBarStyle: { display: "none" } }); // Cache la TabBar
+    } else {
+      navigation.getParent()?.setOptions({ tabBarStyle: { display: "flex" } }); // Réaffiche la TabBar
+    }
+  }, [isFocused, navigation]);
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Bienvenue dans la partie {description} !</Text>
+      <ReduxProvider>
+        <GameContainer time={time} mode={mode} />
+      </ReduxProvider>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
