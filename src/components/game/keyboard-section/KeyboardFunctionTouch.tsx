@@ -5,20 +5,23 @@ export default function KeyboardFunctionTouch({
   onClick,
   icon,
   width,
-  style: customStyle
+  style: customStyle,
 }: {
   onClick?: () => void;
   icon: JSX.Element | string;
-  width?: number | `${number}%`
+  width?: number | `${number}%`;
   style?: ViewStyle | ViewStyle[];
 }) {
   return (
-    <Pressable style={({ pressed }) => [
+    <Pressable
+      style={({ pressed }) => [
         style.key,
         customStyle,
-        {width: width},
+        { width: width },
         pressed && { opacity: 0.5 },
-    ]}>
+      ]}
+      onPress={onClick}
+    >
       <Text>{icon}</Text>
     </Pressable>
   );
@@ -31,7 +34,7 @@ const style = StyleSheet.create({
     height: 35,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F0F0F0",
+    backgroundColor: "#E0E0E0",
     borderColor: "#D9D9D9",
   },
 });

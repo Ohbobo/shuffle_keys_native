@@ -19,7 +19,7 @@ export default function GameWriteSection() {
 
 const styles = StyleSheet.create({
     container: {
-
+        marginRight: 20,
     },
     writeContainer: {
         width: "100%",
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     chatBubble: {
+        color: "white",
         marginRight: 15,
         borderTopLeftRadius: 50,
         borderBottomLeftRadius: 50,

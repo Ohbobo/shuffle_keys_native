@@ -1,13 +1,18 @@
 import { View, StyleSheet } from "react-native";
+
 import { KeyboardProps } from "../../../types/keyboard";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { useKeyboard } from "../../../hooks/useKeyboard";
-import KeyboardSimpleTouch from "./KeyboardSimpleTouch";
+import { deleteLastKey } from "../../../store/features/sentences";
 import { addKey } from "../../../store/features/sentences";
+
+import { useKeyboard } from "../../../hooks/useKeyboard";
+
+import { Ionicons } from "@expo/vector-icons";
+import KeyboardSimpleTouch from "./KeyboardSimpleTouch";
 import KeyboardFunctionTouch from "./KeyboardFunctionTouch";
 import KeyboardSpaceBarContainer from "./KeyboardSpaceBarContainer";
-import { Ionicons } from "@expo/vector-icons";
 
 export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
   const dispatch = useDispatch();
@@ -51,6 +56,7 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
       </View>
       <View style={style.keyboardRow}>
         <KeyboardFunctionTouch
+          onClick={toogleUpperCase}
           icon={
             isUpperCase ? (
               <Ionicons name="arrow-down-outline"></Ionicons>
@@ -74,24 +80,27 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
           {!isCharac && (
             <KeyboardSimpleTouch
               fn={() => handleAddLetter("'")}
-              text="'"
+              text={
+                mode === "blind" ? "" : "'"
+              }
               style={style.adjustedKey}
             />
           )}
         </View>
         <KeyboardFunctionTouch
+          onClick={() => dispatch(deleteLastKey())}
           icon={<Ionicons name="backspace-outline"></Ionicons>}
           width={"12%"}
         />
       </View>
-      <KeyboardSpaceBarContainer />
+      <KeyboardSpaceBarContainer fn={toogleCharacKeys}/>
     </View>
   );
 }
 
 const style = StyleSheet.create({
   keyboardContainer: {
-    backgroundColor: "white",
+    backgroundColor: "#F0F0F0",
     position: "absolute",
     bottom: 30,
     width: "100%",

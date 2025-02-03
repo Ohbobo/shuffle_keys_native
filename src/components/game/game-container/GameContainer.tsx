@@ -5,6 +5,7 @@ import GameNavigationBar from "../navigation_section/GameNavigationBar";
 import KeyboardContainer from "../keyboard-section/KeyboardContainer";
 import GameLoader from "../game-loader/GameLoader";
 import GameWriteSection from "../write_section/GameWriteSection";
+import SentenceSection from "../sentence_section/SentenceSection";
 
 
 export default function GameContainer({ mode, time }: { mode: Mode, time: number }) {
@@ -18,6 +19,7 @@ export default function GameContainer({ mode, time }: { mode: Mode, time: number
   return (
     <View style={style.container}> 
         <GameNavigationBar />
+        <SentenceSection />
         <GameWriteSection />
         <KeyboardContainer />
     </View>

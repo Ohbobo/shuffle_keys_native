@@ -5,7 +5,7 @@ interface Score {
 }
 
 const initialState: Score = {
-    score: 100
+    score: 0
 }
 
 const scoreSlice = createSlice({

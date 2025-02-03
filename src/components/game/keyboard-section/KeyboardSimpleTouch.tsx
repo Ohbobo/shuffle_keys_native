@@ -13,8 +13,8 @@ export default function KeyboardSimpleTouch({
     <Pressable
       style={({ pressed }) => [
         styles.key,
-        customStyle, // Appliquer le style passé en prop
-        pressed && { opacity: 0.5 }, // Effet de pression
+        customStyle, 
+        pressed && { opacity: 0.5 },
       ]}
       onPress={fn}
     >
@@ -26,7 +26,8 @@ export default function KeyboardSimpleTouch({
 const styles = StyleSheet.create({
   key: {
     borderWidth: 1,
-    borderColor: "#D9D9D9",
+    borderColor: "white",
+    backgroundColor: 'white',
     borderRadius: 5,
     height: 35,
     width: 28,
