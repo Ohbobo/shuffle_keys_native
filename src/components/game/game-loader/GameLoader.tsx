@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator  } from "react-native";
 import { MoonLoader } from "react-spinners";
 
 export default function GameLoader() {
   return (
     <View style={style.container}>
       <View style={style.loaderContainer}>
-        <MoonLoader />
+        <ActivityIndicator size="large" color="#12A594"/>
         <Text style={style.loaderText}>Chargement de la partie...</Text>
       </View>
     </View>

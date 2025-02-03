@@ -37,6 +37,13 @@ export default function GameCarousel({ links, navigation }: LinksProps & { navig
 
   return (
     <View style={styles.container}>
+
+      <View style={styles.linksContainer}>
+        {links.map((link, i) => (
+          <Text style={[styles.linkText, carouselState.currentGame === i ? styles.activeLink : ""]} key={i}>{link.description}</Text>
+        ))}
+      </View>
+
       <View style={styles.carouselCard}>
         <View>
           {carouselState.iconElement}
@@ -66,7 +73,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
     gap: 20,
-    marginTop: 50,
   },
   carouselCard: {
     height: 250,
@@ -76,7 +82,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 20
+    padding: 20,
+    backgroundColor: "#272A2D",
   },
   carouselTitle: {
     fontSize: 24,
@@ -93,5 +100,26 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center"
+  },
+  linksContainer: {
+    flexDirection: "row",
+    width: "70%",
+    borderRadius: 10,
+    justifyContent: "space-between",
+    alignItems: "center",
+    overflow: "hidden",
+    backgroundColor: "#272A2D",
+    padding: 5
+  },
+  linkText: {
+    color: "#B0B4BA",
+    width:"33%",
+    textAlign: "center",
+    padding: 10,
+  },
+  activeLink: {
+    backgroundColor: "#43484E",
+    borderRadius: 10,
+    color: "white",
   }
 });

@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, Pressable, ViewStyle } from "react-native";
+import { StyleSheet, Text, Pressable, ViewStyle } from "react-native";
 import type { JSX } from "react";
 
 export default function KeyboardFunctionTouch({

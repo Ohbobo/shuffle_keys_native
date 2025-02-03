@@ -1,10 +1,14 @@
 import { View, StyleSheet } from "react-native";
 import { Mode } from "../types/links";
 import { useIsFocused, type RouteProp } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
 
+import { useFocusEffect } from "@react-navigation/native";
 import GameContainer from "../components/game/game-container/GameContainer";
 import ReduxProvider from "../components/store/ReduxProvider";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
+import { resetScore } from "../store/features/score";
+import { resetState } from "../store/features/sentences";
 
 type RootStackParamList = {
   Game: { mode: Mode; time: number };
@@ -13,7 +17,8 @@ type GameScreenRouteProp = RouteProp<RootStackParamList, "Game">;
 
 export default function GameScreen({ navigation, route }: { navigation: any, route: GameScreenRouteProp }) {
   const { time, mode } = route.params;
-  const isFocused = useIsFocused(); // Vérifie si l'écran est actif
+  const isFocused = useIsFocused();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isFocused) {
@@ -22,11 +27,18 @@ export default function GameScreen({ navigation, route }: { navigation: any, rou
       navigation.getParent()?.setOptions({ tabBarStyle: { display: "flex" } }); // Réaffiche la TabBar
     }
   }, [isFocused, navigation]);
+
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(resetState());
+      dispatch(resetScore());
+    }, [dispatch])
+  );
+
+
   return (
     <View style={styles.container}>
-      <ReduxProvider>
         <GameContainer time={time} mode={mode} />
-      </ReduxProvider>
     </View>
   );
 }

@@ -23,7 +23,7 @@ export default function GameCarouselButtonsBar({
         style={({ pressed }) => [styles.button, styles.flexOneFourth]}
         onPress={() => handleChangeGame(previous)}
       >
-        <Ionicons name="chevron-back" size={20}></Ionicons>
+        <Ionicons name="chevron-back" color={"white"} size={20}></Ionicons>
       </Pressable>
       <Pressable
         style={({ pressed }) => [styles.button, styles.flexTwoFourth]}
@@ -38,7 +38,7 @@ export default function GameCarouselButtonsBar({
         style={({ pressed }) => [styles.button, styles.flexOneFourth]}
         onPress={() => handleChangeGame(next)}
       >
-        <Ionicons name="chevron-forward" size={20}></Ionicons>
+        <Ionicons name="chevron-forward" color={"white"} size={20}></Ionicons>
       </Pressable>
     </View>
   );
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 50,
     borderWidth: 1,
-    borderColor: "#CECECE",
+    backgroundColor: "#272A2D",
   },
   flexTwoFourth: {
     flex: 2,
