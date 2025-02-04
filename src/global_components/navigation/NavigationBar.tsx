@@ -28,15 +28,14 @@ export default function NavigationBar() {
           tabBarActiveTintColor: "#90DA3D",
           tabBarInactiveTintColor: "gray",
           tabBarStyle: {
-            position: "absolute",
+            position: "static",
             bottom: 10,
+            alignSelf: "center",  // Centre la TabBar automatiquement
+            width: "90%",         // Largeur fixe pour ne pas prendre 100%
             borderRadius: 15,
-            marginHorizontal: "auto",
-            marginVertical: 0,
             height: 60,
-            width: "90%",
-            justifyContent: "center",
-            backgroundColor: "#272A2D"
+            backgroundColor: "#272A2D",
+            elevation: 5,          // Ajoute une ombre sur Android
           },
           tabBarItemStyle: {
             justifyContent: "center",

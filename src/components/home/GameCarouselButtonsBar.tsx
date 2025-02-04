@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 5,
     borderRadius: 15,
-    backgroundColor: "#272A2D",
+    backgroundColor: "black",
   },
   textButton: {
     color: "white",

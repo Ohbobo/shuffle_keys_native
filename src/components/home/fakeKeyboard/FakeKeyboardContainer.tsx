@@ -30,10 +30,13 @@ export default function FakeKeyboardContainer({ mode }: { mode: string }) {
 }
 
 const styles = StyleSheet.create({
-    animatedContainer: {
-      position: "absolute",
-      left: "50%",
-      transform: [{ translateX: "-50%" }], // Centrer horizontalement
-      width: "95%",
-    },
-  });
+  animatedContainer: {
+    position: "absolute",
+    right: 0,
+    left: 0,
+    bottom: -200,
+    width: "auto",
+    alignItems: "center",
+  },
+});
+

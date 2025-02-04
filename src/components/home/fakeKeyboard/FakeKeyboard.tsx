@@ -67,9 +67,9 @@ export default function FakeKeyboard({ letterKeys, charsKeys, mode }: { letterKe
 const style = StyleSheet.create({
   keyboardContainer: {
     backgroundColor: "black",
-    width: "auto",
-    height: "auto",
     flexDirection: "column",
+    width: "95%", // Occupe 95% de la largeur du parent, pour laisser un peu de marge
+    maxWidth: 400, // Limite la taille maximale pour éviter les débordements
     gap: 10,
     paddingHorizontal: 10,
     paddingVertical: 12,

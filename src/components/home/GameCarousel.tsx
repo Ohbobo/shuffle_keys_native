@@ -85,13 +85,12 @@ export default function GameCarousel({
 
       <View style={styles.bulletsContainer}>
         {links.map((_, i) => (
-          <Pressable onPress={() => handlePressChangeGame(i)}>
+          <Pressable key={i} onPress={() => handlePressChangeGame(i)}>
             <Text
               style={[
                 styles.bullet,
                 carouselState.currentGame === i ? styles.activeBullet : "",
               ]}
-              key={i}
             ></Text>
           </Pressable>
         ))}
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
   carouselTitleType: {
     color: "#12A594",
     fontSize: 24,
-  },
+  },   
   time: {
     borderWidth: 2,
     borderColor: "#CECECE",
