@@ -5,7 +5,7 @@ export default function HomepageTopNavigation() {
   return (
     <View style={style.container}>
         <Text style={style.text}>O</Text>
-        <Ionicons name="notifications-outline" size={20}></Ionicons>
+        <Ionicons name="notifications" size={20}></Ionicons>
     </View>
   )
 }

@@ -1,10 +1,14 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { LinksProps } from "../../types/links";
 import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import GameCarouselButtonsBar from "./GameCarouselButtonsBar";
+import FakeKeyboardContainer from "./fakeKeyboard/FakeKeyboardContainer";
 
-export default function GameCarousel({ links, navigation }: LinksProps & { navigation: any }) {
+export default function GameCarousel({
+  links,
+  navigation,
+}: LinksProps & { navigation: any }) {
   const [carouselState, setCarouselState] = useState({
     currentGame: 0,
     iconElement: <Ionicons name="glasses" size={20}></Ionicons>,
@@ -17,44 +21,57 @@ export default function GameCarousel({ links, navigation }: LinksProps & { navig
     }));
   };
 
-  useEffect(() => {
-    const currentMode = links[carouselState.currentGame].mode;
-
-    const newIconElement =
-      currentMode === "classic" ? (
-        <Ionicons name="glasses" size={32} color={"#12A594"} />
-      ) : currentMode === "blind" ? (
-        <Ionicons name="eye-off" size={32} color={"#12A594"} />
-      ) : (
-        <Ionicons name="shuffle" size={32} color={"#12A594"} />
-      );
-
+  const handlePressChangeGame = (index: number) => {
     setCarouselState((prev) => ({
       ...prev,
-      iconElement: newIconElement,
+      currentGame: index,
     }));
-  }, [carouselState.currentGame]);
+  };
+
+  // useEffect(() => {
+  //   const currentMode = links[carouselState.currentGame].mode;
+
+  //   const newIconElement =
+  //     currentMode === "classic" ? (
+  //       <Ionicons name="glasses" size={32} color={"#12A594"} />
+  //     ) : currentMode === "blind" ? (
+  //       <Ionicons name="eye-off" size={32} color={"#12A594"} />
+  //     ) : (
+  //       <Ionicons name="shuffle" size={32} color={"#12A594"} />
+  //     );
+
+  //   setCarouselState((prev) => ({
+  //     ...prev,
+  //     iconElement: newIconElement,
+  //   }));
+  // }, [carouselState.currentGame]);
 
   return (
     <View style={styles.container}>
-
       <View style={styles.linksContainer}>
         {links.map((link, i) => (
-          <Text style={[styles.linkText, carouselState.currentGame === i ? styles.activeLink : ""]} key={i}>{link.description}</Text>
+          <Pressable
+            key={i}
+            style={[
+              styles.linkPressable,
+              carouselState.currentGame === i ? styles.activeLink : "",
+            ]}
+            onPress={() => handlePressChangeGame(i)}
+          >
+            <Text style={styles.linkText}>{link.description}</Text>
+          </Pressable>
         ))}
       </View>
-
       <View style={styles.carouselCard}>
         <View>
-          {carouselState.iconElement}
-          <Text style={styles.carouselTitle}>Partie</Text>
-          <Text style={styles.carouselTitleType}>
-            {links[carouselState.currentGame].description}
+          <Text style={styles.carouselTitle}>
+            Partie {links[carouselState.currentGame].description}
           </Text>
         </View>
         <View style={styles.time}>
           <Text>{links[carouselState.currentGame].time}s</Text>
         </View>
+        <FakeKeyboardContainer mode={links[carouselState.currentGame].mode}/>
       </View>
 
       <GameCarouselButtonsBar
@@ -65,6 +82,20 @@ export default function GameCarousel({ links, navigation }: LinksProps & { navig
         time={links[carouselState.currentGame].time}
         mode={links[carouselState.currentGame].mode}
       />
+
+      <View style={styles.bulletsContainer}>
+        {links.map((_, i) => (
+          <Pressable onPress={() => handlePressChangeGame(i)}>
+            <Text
+              style={[
+                styles.bullet,
+                carouselState.currentGame === i ? styles.activeBullet : "",
+              ]}
+              key={i}
+            ></Text>
+          </Pressable>
+        ))}
+      </View>
     </View>
   );
 }
@@ -75,18 +106,19 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   carouselCard: {
+    position: "relative",
     height: 250,
     width: "auto",
-    borderColor: "black",
-    borderWidth: 1,
     borderRadius: 20,
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-between",
     padding: 20,
-    backgroundColor: "#272A2D",
+    backgroundColor: "#E9E8E6",
+    overflow: "hidden"
   },
   carouselTitle: {
     fontSize: 24,
+    fontWeight: "600"
   },
   carouselTitleType: {
     color: "#12A594",
@@ -99,27 +131,45 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 50,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   linksContainer: {
     flexDirection: "row",
-    width: "70%",
+    width: "90%",
     borderRadius: 10,
     justifyContent: "space-between",
     alignItems: "center",
     overflow: "hidden",
-    backgroundColor: "#272A2D",
-    padding: 5
+    backgroundColor: "#F1F0EF",
+    padding: 5,
   },
-  linkText: {
+  linkPressable: {
     color: "#B0B4BA",
-    width:"33%",
+    width: "33%",
     textAlign: "center",
     padding: 10,
   },
   activeLink: {
-    backgroundColor: "#43484E",
+    backgroundColor: "#E2E1DE",
     borderRadius: 10,
-    color: "white",
-  }
+    color: "black",
+  },
+  linkText: {
+    textAlign: "center",
+  },
+  bulletsContainer: {
+    flexDirection: "row",
+    gap: 5,
+    justifyContent: "center",
+  },
+  bullet: {
+    width: 8,
+    height: 8,
+    backgroundColor: "#DAD9D6",
+    borderRadius: 50,
+  },
+  activeBullet: {
+    width: 20,
+    backgroundColor: "#FFDC00",
+  },
 });

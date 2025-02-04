@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { useFocusEffect } from "@react-navigation/native";
 import GameContainer from "../components/game/game-container/GameContainer";
-import ReduxProvider from "../components/store/ReduxProvider";
+
 import { useCallback, useEffect } from "react";
 import { resetScore } from "../store/features/score";
 import { resetState } from "../store/features/sentences";
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "#F6ECC9",
   },
   text: {
     fontSize: 24,

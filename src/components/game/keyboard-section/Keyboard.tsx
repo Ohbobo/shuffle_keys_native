@@ -18,16 +18,12 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
   const dispatch = useDispatch();
   const mode = useSelector((state: RootState) => state.modeSliceReducer.value);
 
-  const { keyboardState, toogleUpperCase, toogleCharacKeys } = useKeyboard({
+  const { keyboardState, toogleUpperCase, toogleCharacKeys, firstLine, secondLine, thirdLine } = useKeyboard({
     letterKeys,
     charsKeys,
   });
 
-  const { isCharac, isUpperCase, keys } = keyboardState;
-
-  const firstLine = keys.slice(0, 10);
-  const secondLine = keys.slice(10, 20);
-  const thirdLine = keys.slice(20, 26);
+  const { isCharac, isUpperCase } = keyboardState;
 
   const handleAddLetter = (letter: string) => {
     const letterToAdd = isUpperCase ? letter.toUpperCase() : letter;
@@ -93,23 +89,21 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
           width={"12%"}
         />
       </View>
-      <KeyboardSpaceBarContainer fn={toogleCharacKeys}/>
+      <KeyboardSpaceBarContainer isChars={isCharac} fn={toogleCharacKeys}/>
     </View>
   );
 }
 
 const style = StyleSheet.create({
   keyboardContainer: {
-    backgroundColor: "#F0F0F0",
-    position: "absolute",
-    bottom: 30,
+    backgroundColor: "#000000",
     width: "100%",
     height: "auto",
     flexDirection: "column",
     gap: 10,
     paddingHorizontal: 7,
-    paddingVertical: 12,
-    borderRadius: 5,
+    paddingVertical: 30,
+    borderRadius: 15,
   },
   keyboardRow: {
     flexDirection: "row",
@@ -121,6 +115,7 @@ const style = StyleSheet.create({
     justifyContent: "center", // Centrer les touches restantes
     alignItems: "center",
     flexGrow: 1, // Assurer que la ligne prend toute la largeur disponible
+    gap: 2
   },
   adjustedKey: {
     flexGrow: 1, // Assurer que chaque touche prend un espace égal

@@ -25,11 +25,18 @@ export default function NavigationBar() {
 
             return <Ionicons name={iconName} size={size || 24} color={color} />;
           },
-          tabBarActiveTintColor: "#83CDC1",
+          tabBarActiveTintColor: "#90DA3D",
           tabBarInactiveTintColor: "gray",
           tabBarStyle: {
+            position: "absolute",
+            bottom: 10,
+            borderRadius: 15,
+            marginHorizontal: "auto",
+            marginVertical: 0,
             height: 60,
+            width: "90%",
             justifyContent: "center",
+            backgroundColor: "#272A2D"
           },
           tabBarItemStyle: {
             justifyContent: "center",

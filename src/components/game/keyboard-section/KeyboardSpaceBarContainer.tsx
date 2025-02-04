@@ -3,11 +3,11 @@ import KeyboardFunctionTouch from "./KeyboardFunctionTouch";
 import { useDispatch } from "react-redux";
 import { addSpace } from "../../../store/features/sentences";
 
-export default function KeyboardSpaceBarContainer({ fn }: { fn: () => void }) {
+export default function KeyboardSpaceBarContainer({ isChars ,fn }: { isChars?: boolean, fn: () => void }) {
   const dispatch = useDispatch();
   return (
     <View style={styles.container}>
-      <KeyboardFunctionTouch icon={"123"} style={styles.key} onClick={fn} />
+      <KeyboardFunctionTouch icon={isChars ? "ABC" : "123"} style={styles.key} onClick={fn} />
       <KeyboardFunctionTouch icon={"space"} style={[styles.key, styles.spaceKey]} onClick={() => dispatch(addSpace())} />
       <KeyboardFunctionTouch icon={"retour"} style={styles.key} />
     </View>

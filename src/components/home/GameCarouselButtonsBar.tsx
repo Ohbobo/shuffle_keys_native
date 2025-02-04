@@ -19,26 +19,25 @@ export default function GameCarouselButtonsBar({
 }) {
   return (
     <View style={styles.carouselButtonContainer}>
-      <Pressable
+      {/* <Pressable
         style={({ pressed }) => [styles.button, styles.flexOneFourth]}
         onPress={() => handleChangeGame(previous)}
       >
-        <Ionicons name="chevron-back" color={"white"} size={20}></Ionicons>
+        <Ionicons name="chevron-back" size={20}></Ionicons>
       </Pressable>
+      <Pressable
+        style={({ pressed }) => [styles.button, styles.flexOneFourth]}
+        onPress={() => handleChangeGame(next)}
+      >
+        <Ionicons name="chevron-forward" size={20}></Ionicons>
+      </Pressable> */}
       <Pressable
         style={({ pressed }) => [styles.button, styles.flexTwoFourth]}
         onPress={() =>
           navigation.navigate("Game", { time, mode })
         }
       >
-        <Ionicons name="game-controller" size={20}></Ionicons>
-        <Text>Jouer</Text>
-      </Pressable>
-      <Pressable
-        style={({ pressed }) => [styles.button, styles.flexOneFourth]}
-        onPress={() => handleChangeGame(next)}
-      >
-        <Ionicons name="chevron-forward" color={"white"} size={20}></Ionicons>
+        <Text style={styles.textButton}>Jouer</Text>
       </Pressable>
     </View>
   );
@@ -58,15 +57,19 @@ const styles = StyleSheet.create({
   },
   flexOneFourth: {
     flex: 1,
-    borderRadius: 50,
+    borderRadius: 15,
     borderWidth: 1,
-    backgroundColor: "#272A2D",
+    borderColor: "#CFCECA"
   },
   flexTwoFourth: {
     flex: 2,
     flexDirection: "row",
     gap: 5,
-    borderRadius: 50,
-    backgroundColor: "#A1DED2",
+    borderRadius: 15,
+    backgroundColor: "#272A2D",
   },
+  textButton: {
+    color: "white",
+    fontWeight: "bold"
+  }
 });

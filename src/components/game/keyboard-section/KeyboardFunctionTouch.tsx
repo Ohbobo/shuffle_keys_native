@@ -22,7 +22,7 @@ export default function KeyboardFunctionTouch({
       ]}
       onPress={onClick}
     >
-      <Text>{icon}</Text>
+      <Text style={style.keyText}>{icon}</Text>
     </Pressable>
   );
 }
@@ -34,7 +34,10 @@ const style = StyleSheet.create({
     height: 35,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#E0E0E0",
-    borderColor: "#D9D9D9",
+    borderColor: "#2A2A2A",
+    backgroundColor: '#191919',
   },
+  keyText: {
+    color: "white"
+  }
 });

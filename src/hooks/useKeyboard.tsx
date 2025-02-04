@@ -8,6 +8,11 @@ export const useKeyboard = ({ letterKeys, charsKeys }: KeyboardProps) => {
     keys: letterKeys.split(""),
   });
 
+
+  const firstLine = keyboardState.keys.slice(0, 10);
+  const secondLine = keyboardState.keys.slice(10, 20);
+  const thirdLine = keyboardState.keys.slice(20, 26);
+
   useEffect(() => {
     setKeyboardState((prev) => ({
       ...prev,
@@ -30,6 +35,9 @@ export const useKeyboard = ({ letterKeys, charsKeys }: KeyboardProps) => {
   };
 
   return {
+    firstLine,
+    secondLine,
+    thirdLine,
     keyboardState,
     toogleCharacKeys,
     toogleUpperCase,

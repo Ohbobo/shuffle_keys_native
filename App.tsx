@@ -5,6 +5,8 @@ import NavigationBar from "./src/global_components/navigation/NavigationBar";
 import ReduxProvider from "./src/components/store/ReduxProvider";
 enableScreens();
 
+//https://dribbble.com/shots/20017643-GoodNotes-Collaborative-Notes-Mobile-App
+
 export default function App() {
   return (
     <ReduxProvider>
@@ -26,10 +28,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5f5f5",
   },
   phoneContainer: {
-    width: "100%", // Largeur d'un iPhone standard
-    height: "100%", // Hauteur d'un iPhone standard
+    width: 375, // Largeur d'un iPhone standard
+    height: 812, // Hauteur d'un iPhone standard
     overflow: "hidden", // Empêche le débordement
-    backgroundColor: "#fff",
+    backgroundColor: "#191919",
     borderColor: "#000",
     boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
   },

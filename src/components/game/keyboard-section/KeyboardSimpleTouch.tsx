@@ -18,7 +18,7 @@ export default function KeyboardSimpleTouch({
       ]}
       onPress={fn}
     >
-      <Text>{text}</Text>
+      <Text style={styles.keyText}>{text}</Text>
     </Pressable>
   );
 }
@@ -26,12 +26,16 @@ export default function KeyboardSimpleTouch({
 const styles = StyleSheet.create({
   key: {
     borderWidth: 1,
-    borderColor: "white",
-    backgroundColor: 'white',
+    borderColor: "#2A2A2A",
+    backgroundColor: '#222222',
     borderRadius: 5,
     height: 35,
     width: 28,
     justifyContent: "center",
     alignItems: "center",
   },
+  keyText: {
+    color: "white",
+    fontSize: 16
+  }
 });
