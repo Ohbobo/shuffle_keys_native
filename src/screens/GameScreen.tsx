@@ -22,9 +22,20 @@ export default function GameScreen({ navigation, route }: { navigation: any, rou
 
   useEffect(() => {
     if (isFocused) {
-      navigation.getParent()?.setOptions({ tabBarStyle: { display: "none" } }); // Cache la TabBar
+      navigation.getParent()?.setOptions({ tabBarStyle: { display: "none" } });
     } else {
-      navigation.getParent()?.setOptions({ tabBarStyle: { display: "flex" } }); // Réaffiche la TabBar
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {
+          position: "static",
+          bottom: 10,
+          alignSelf: "center",
+          width: "90%",
+          borderRadius: 15,
+          height: 60,
+          backgroundColor: "#272A2D",
+          elevation: 5,
+        },
+      });
     }
   }, [isFocused, navigation]);
 
@@ -35,22 +46,18 @@ export default function GameScreen({ navigation, route }: { navigation: any, rou
     }, [dispatch])
   );
 
-
   return (
     <View style={styles.container}>
-        <GameContainer time={time} mode={mode} />
+      <GameContainer time={time} mode={mode} />
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F6ECC9",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
   },
 });

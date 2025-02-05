@@ -2,8 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
-import RankingScreen from "../../screens/RankingScreen";
-import SettingsScreen from "../../screens/SettingsScreen";
+import RankingScreen from "../../../screens/RankingScreen";
+import SettingsScreen from "../../../screens/SettingsScreen";
 import HomeStack from "./Stacks";
 
 const Tab = createBottomTabNavigator();

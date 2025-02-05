@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import { View, StyleSheet } from "react-native";
 import { enableScreens } from "react-native-screens";
-import NavigationBar from "./src/global_components/navigation/NavigationBar";
+import NavigationBar from "./src/components/navigation/navigation/NavigationBar";
 import ReduxProvider from "./src/components/store/ReduxProvider";
 enableScreens();
 
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   },
   phoneContainer: {
     position: "relative",
-    width: "100%", // Largeur d'un iPhone standard
-    height: "100%", // Hauteur d'un iPhone standard
+    width: 375, // Largeur d'un iPhone standard
+    height: 812, // Hauteur d'un iPhone standard
     overflow: "hidden",
     borderColor: "#000",
   },

@@ -17,7 +17,7 @@ export const links: LinksGroupProps[] = [
         description: "Aveugle",
         mode: "blind",
         path: "blind",
-        time: 90
+        time: 5
     },
 ]
 

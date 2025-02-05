@@ -1,7 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "../../screens/HomeScreen";
-import GameScreen from "../../screens/GameScreen";
-import { Mode } from "../../types/links";
+import HomeScreen from "../../../screens/HomeScreen";
+import GameScreen from "../../../screens/GameScreen";
+import { Mode } from "../../../types/links";
 
 type RootStackParamList = {
   Home: undefined;
