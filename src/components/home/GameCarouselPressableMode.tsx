@@ -1,27 +1,24 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { LinksGroupProps } from "../../types/links";
+import { RootState } from "../../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMode } from "../../store/features/links";
 
-export default function GameCarouselPressableMode({
-  links,
-  handlePressChangeGame,
-  currentGame,
-}: {
-  links: LinksGroupProps[];
-  handlePressChangeGame: (index: number) => void;
-  currentGame: number; 
-}) {
+export default function GameCarouselPressableMode() {
+  const dispatch = useDispatch();
+  const { modes, selectedModeIndex } = useSelector((state: RootState) => state.gameModeSliceReducer);
+
   return (
     <View style={styles.linksContainer}>
-      {links.map((link, i) => (
+      {modes.map((mode, i) => (
         <Pressable
           key={i}
           style={[
             styles.linkPressable,
-            currentGame === i ? styles.activeLink : "",
+            selectedModeIndex === i ? styles.activeLink : "",
           ]}
-          onPress={() => handlePressChangeGame(i)}
+          onPress={() => dispatch(selectMode(i))}
         >
-          <Text style={styles.linkText}>{link.description}</Text>
+          <Text style={styles.linkText}>{mode.description}</Text>
         </Pressable>
       ))}
     </View>

@@ -14,13 +14,13 @@ const modeSlice = createSlice({
     setMode: (state, action: PayloadAction<{ mode: Mode; time: number }>) => {
       state.value = action.payload.mode;
       state.timer = action.payload.time;
-      state.isRunning = false; // Reset avant de démarrer
+      state.isRunning = false;
     },
     decrementTime: (state) => {
       if (state.timer > 0) {
         state.timer -= 1;
       } else {
-        state.isRunning = false; // Stop le timer quand il atteint 0
+        state.isRunning = false;
       }
     },
     startTimer: (state) => {
@@ -36,6 +36,5 @@ const modeSlice = createSlice({
   },
 });
 
-export const { setMode, decrementTime, startTimer, stopTimer, resetTimer } =
-  modeSlice.actions;
+export const { setMode, decrementTime, startTimer, stopTimer, resetTimer } = modeSlice.actions;
 export default modeSlice.reducer;

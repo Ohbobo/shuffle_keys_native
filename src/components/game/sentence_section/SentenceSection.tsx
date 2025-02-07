@@ -53,13 +53,14 @@ export default function SentenceSection() {
         {currentSentence.text.split("").map((char, i) => (
           <Text
             key={i}
-            style={
+            style={[
+              style.letter,
               letterStyles[i] === "correct"
                 ? style.green
                 : letterStyles[i] === "incorrect"
                 ? style.red
-                : style.black
-            }
+                : style.white,
+            ]}
           >
             {char}
           </Text>
@@ -80,23 +81,26 @@ const style = StyleSheet.create({
     alignSelf: "flex-start",
     flexDirection: "row",
     flexShrink: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "black",
     alignItems: "center",
     borderTopRightRadius: 50,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     paddingVertical: 8,
     marginLeft: 15,
   },
+  letter: {
+    fontSize: 16
+  },
   green: {
-    color: "green",
+    color: "#65BA74",
   },
   red: {
-    color: "red",
+    color: "#E5484D",
   },
-  black: {
-    color: "black",
+  white: {
+    color: "white",
   },
   avatar: {
     width: 20,

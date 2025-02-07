@@ -5,7 +5,10 @@ export default function HomepageTopNavigation() {
   return (
     <View style={style.container}>
         <Text style={style.text}>O</Text>
-        <Ionicons name="notifications" size={20}></Ionicons>
+        <View style={style.notificationContainer}>
+          <Text style={style.notificationDot}></Text>
+          <Ionicons name="notifications" size={20}></Ionicons>
+        </View>
     </View>
   )
 }
@@ -24,5 +27,17 @@ const style = StyleSheet.create({
         height: 24,
         width: 24,
         color: "white",
+    },
+    notificationContainer: {
+      position: "relative",
+    },
+    notificationDot: {
+      position: "absolute",
+      right: 0,
+      width: 9,
+      height: 9,
+      borderRadius: 50,
+      backgroundColor: "#FFE770",
+      zIndex: 99,
     }
 })

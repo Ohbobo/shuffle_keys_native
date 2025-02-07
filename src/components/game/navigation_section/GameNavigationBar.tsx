@@ -1,8 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
-
+import BackButtonNavigation from "../../global/BackButtonNavigation";
 
 export default function GameNavigationBar() {
   const { timer }  = useSelector((state: RootState) => state.modeSliceReducer);
@@ -10,9 +9,7 @@ export default function GameNavigationBar() {
 
   return (
     <View style={styles.gameNavigationContainer}>
-        <View>
-            <Ionicons name="close-outline" size={24}></Ionicons>
-        </View>
+        <BackButtonNavigation size={14}/>
         <View>
             <Text>{score}</Text>
         </View>
@@ -31,8 +28,5 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 60,
         paddingHorizontal: 20,
-        backgroundColor: "#F0F0F0",
-        borderBottomWidth: 1,
-        borderBottomColor: "#D9D9D9",
     }
 })

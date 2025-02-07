@@ -1,23 +1,21 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { LinksGroupProps } from "../../types/links";
+import { RootState } from "../../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMode } from "../../store/features/links";
 
-export default function GameCarouselBulletPointsNavigation({
-  links,
-  currentGame,
-  handlePressChangeGame
-}: {
-  links: LinksGroupProps[];
-  currentGame: number;
-  handlePressChangeGame: (index: number) => void
-}) {
+export default function GameCarouselBulletPointsNavigation() {
+
+  const dispatch = useDispatch();
+  const { modes, selectedModeIndex } = useSelector((state: RootState) => state.gameModeSliceReducer);
+
   return (
     <View style={styles.bulletsContainer}>
-      {links.map((_, i) => (
-        <Pressable key={i} onPress={() => handlePressChangeGame(i)}>
+      {modes.map((_, i) => (
+        <Pressable key={i} onPress={() => dispatch(selectMode(i))}>
           <Text
             style={[
               styles.bullet,
-              currentGame === i ? styles.activeBullet : "",
+              selectedModeIndex === i ? styles.activeBullet : "",
             ]}
           ></Text>
         </Pressable>

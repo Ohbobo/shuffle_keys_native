@@ -1,18 +1,11 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { Mode } from "../../types/links";
 
 export default function GameCarouselButtonsBar({
-  handleChangeGame,
-  previous,
-  next,
   navigation,
   mode,
   time
 }: {
-  handleChangeGame: (n: number) => void;
-  previous: number;
-  next: number;
   navigation: any;
   mode: Mode;
   time: number

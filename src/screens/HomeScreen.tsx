@@ -28,7 +28,7 @@ export default function HomeScreen({ navigation }: { navigation: any }) {
   return (
     <View style={styles.container}>
       <HomepageTopNavigation />
-      <GameCarousel links={links} navigation={navigation} />
+      <GameCarousel navigation={navigation} />
     </View>
   );
 }

@@ -4,19 +4,22 @@ import { enableScreens } from "react-native-screens";
 import NavigationBar from "./src/components/navigation/navigation/NavigationBar";
 import ReduxProvider from "./src/components/store/ReduxProvider";
 enableScreens();
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./src/lib/queryClient";
 
 //https://dribbble.com/shots/20017643-GoodNotes-Collaborative-Notes-Mobile-App
 
 export default function App() {
   return (
-    <ReduxProvider>
-      <View style={styles.container}>
-        <View style={styles.phoneContainer}>
+    <QueryClientProvider client={queryClient}>
+      <ReduxProvider>
+        <View style={styles.container}>
+          <View style={styles.phoneContainer}>
             <NavigationBar />
+          </View>
         </View>
-      </View>
-
-    </ReduxProvider>
+      </ReduxProvider>
+    </QueryClientProvider>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Mode } from "../../../types/links";
 import { useGame } from "../../../hooks/useGame";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import GameNavigationBar from "../navigation_section/GameNavigationBar";
 import KeyboardContainer from "../keyboard-section/KeyboardContainer";
 import GameLoader from "../game-loader/GameLoader";

@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^2.5.1",
     "@rneui/themed": "^4.0.0-rc.8",
     "@supabase/supabase-js": "^2.48.1",
+    "@tanstack/react-query": "^5.66.0",
     "expo": "~52.0.27",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",

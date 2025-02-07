@@ -25,7 +25,7 @@ export default function NavigationBar() {
 
             return <Ionicons name={iconName} size={size || 24} color={color} />;
           },
-          tabBarActiveTintColor: "#90DA3D",
+          tabBarActiveTintColor: "#FFE770",
           tabBarInactiveTintColor: "gray",
           tabBarStyle: {
             position: "static",
