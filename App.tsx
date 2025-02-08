@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
   },
   phoneContainer: {
     position: "relative",
-    width: 375, // Largeur d'un iPhone standard
-    height: 812, // Hauteur d'un iPhone standard
+    width: "100%", // Largeur d'un iPhone standard
+    height: "100%", // Hauteur d'un iPhone standard
     overflow: "hidden",
     borderColor: "#000",
   },

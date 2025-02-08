@@ -22,6 +22,7 @@ const modeSlice = createSlice({
       } else {
         state.isRunning = false;
       }
+      console.log(state.timer)
     },
     startTimer: (state) => {
       state.isRunning = true;

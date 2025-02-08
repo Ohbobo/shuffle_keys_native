@@ -1,12 +1,12 @@
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
-import { useRankingsQuery } from "../../../lib/services/rankingService";
-import { setRankings } from "../../../store/features/ranking";
-import RankingRow from "./RankingRow";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native"
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "../../store/store"
+import { useRankingsQuery } from "../../lib/services/rankingService"
+import RankingRow from "../home/ranking/RankingRow"
+import { useEffect } from "react"
+import { setRankings } from "../../store/features/ranking"
 
-export default function RankingContainer() {
+export default function RankingsSectionContainer() {
   const dispatch = useDispatch();
   const { modes, selectedModeIndex } = useSelector(
     (state: RootState) => state.gameModeSliceReducer
@@ -35,7 +35,7 @@ export default function RankingContainer() {
   return (
     <View style={styles.container}>
       {storeRankings.length > 0 ? (
-        storeRankings.slice(0, 3).map((user, index) => (
+        storeRankings.map((user, index) => (
           <RankingRow
             key={index}
             index={index}
@@ -48,10 +48,10 @@ export default function RankingContainer() {
         <Text style={styles.noData}>Aucun classement disponible</Text>
       )}
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: "#F0F0F0",
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
     color: "#888",
     textAlign: "center",
   },
-});
+})

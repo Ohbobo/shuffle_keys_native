@@ -1,8 +1,8 @@
 import { View, StyleSheet, Text } from "react-native";
 import BackButtonNavigation from "../components/global/BackButtonNavigation";
 import GameCarouselPressableMode from "../components/home/GameCarouselPressableMode";
-import RankingContainer from "../components/home/ranking/RankingContainer";
 import TitleScreen from "../components/global/TitleScreen";
+import RankingsSectionContainer from "../components/rankings/RankingsSectionContainer";
 
 export default function RankingScreen() {
   return (
@@ -11,7 +11,7 @@ export default function RankingScreen() {
       <View>
         <TitleScreen size={20} title="Classement"/>
         <GameCarouselPressableMode />
-        <RankingContainer />
+        <RankingsSectionContainer />
       </View>
     </View>
   );

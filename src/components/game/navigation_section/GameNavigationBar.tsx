@@ -10,10 +10,10 @@ export default function GameNavigationBar() {
   return (
     <View style={styles.gameNavigationContainer}>
         <BackButtonNavigation size={14}/>
-        <View>
+        <View style={[styles.gameNavigationChildrenContainer, styles.score]}>
             <Text>{score}</Text>
         </View>
-        <View>
+        <View style={[styles.gameNavigationChildrenContainer, styles.timer]}>
             <Text>{timer}</Text>
         </View>
     </View>
@@ -23,10 +23,21 @@ export default function GameNavigationBar() {
 const styles = StyleSheet.create({
     gameNavigationContainer : {
         flexDirection: "row",
-        justifyContent: "space-between",
         alignItems: "center",
         width: "100%",
-        height: 60,
+        height: 50,
         paddingHorizontal: 20,
+    },
+    gameNavigationChildrenContainer: {
+        height: "100%",
+        width:"33%",
+    },
+    timer: {
+        justifyContent: "center",
+        alignItems: 'flex-end'
+    },
+    score: {
+        justifyContent:"center",
+        alignItems: "center"
     }
 })

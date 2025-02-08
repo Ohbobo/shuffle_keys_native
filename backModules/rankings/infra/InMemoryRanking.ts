@@ -49,6 +49,15 @@ export class InMemoryRanking implements IRankingRepository {
         { mode: "blind", score: 15 },
       ],
     },
+    {
+      username: "Dabodug l'écu",
+      tag: "1515",
+      score: [
+        { mode: "classic", score: 10000 },
+        { mode: "random", score: 10000 },
+        { mode: "blind", score: 10000 },
+      ],
+    },
   ];
 
   async getAllRankSorted(mode: Mode): Promise<IRanking[]> {

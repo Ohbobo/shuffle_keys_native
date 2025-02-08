@@ -3,7 +3,7 @@ import { letterKeys } from "../../../data/keys";
 import { characKeys } from "../../../data/keys";
 import { RootState } from "../../../store/store";
 import { shuffleArrayToString } from "../../../utils/random/shuffleArrayToString";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import Keyboard from "./Keyboard";
 import { Animated, Easing, StyleSheet } from "react-native";
 
@@ -18,14 +18,22 @@ export default function KeyboardContainer() {
       easing: Easing.out(Easing.ease),
       useNativeDriver: false,
     }).start();
-  }, []);
+  }, [animatedBottom]);
 
-  const mode = useSelector((state: RootState) => state.modeSliceReducer.value);
-  const randomKeys = (keys: string) => {
-    return useMemo(() => shuffleArrayToString(keys), []);
-  };
-  const lettersKeys = mode === "random" ? randomKeys(letterKeys) : letterKeys;
-  const charsKeys = mode === "random" ? randomKeys(characKeys) : characKeys;
+  const mode = useSelector((state: RootState) => state.modeSliceReducer.value) || "classic";
+
+  const [lettersKeys, setLettersKeys] = useState<string>(letterKeys)
+  const [charsKeys, setCharsKeys] = useState<string>(letterKeys)
+
+  useEffect(() => {
+    if(mode === "random") {
+      setLettersKeys(shuffleArrayToString(letterKeys));
+      setCharsKeys(shuffleArrayToString(characKeys));
+    } else {
+      setLettersKeys(letterKeys);
+      setCharsKeys(characKeys)
+    }
+  }, [mode]);
 
   return (
     <Animated.View

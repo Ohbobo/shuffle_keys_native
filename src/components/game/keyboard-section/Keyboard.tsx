@@ -50,7 +50,7 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
           />
         ))}
       </View>
-      <View style={style.keyboardRow}>
+      <View style={style.thirdRow}>
         <KeyboardFunctionTouch
           onClick={toogleUpperCase}
           icon={
@@ -60,9 +60,9 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
               <Ionicons name="arrow-up-outline"></Ionicons>
             )
           }
-          width={"12%"}
+          style={style.functionKey}
         />
-        <View style={style.thirdRow}>
+        <View style={style.lettersContainer}>
           {thirdLine.map((key, i) => (
             <KeyboardSimpleTouch
               fn={() => handleAddLetter(key)}
@@ -70,7 +70,6 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
               text={
                 mode === "blind" ? "" : isUpperCase ? key.toUpperCase() : key
               }
-              style={style.adjustedKey}
             />
           ))}
           {!isCharac && (
@@ -79,14 +78,13 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
               text={
                 mode === "blind" ? "" : "'"
               }
-              style={style.adjustedKey}
             />
           )}
         </View>
         <KeyboardFunctionTouch
           onClick={() => dispatch(deleteLastKey())}
           icon={<Ionicons name="backspace-outline"></Ionicons>}
-          width={"12%"}
+          style={style.functionKey}
         />
       </View>
       <KeyboardSpaceBarContainer isChars={isCharac} fn={toogleCharacKeys}/>
@@ -108,19 +106,27 @@ const style = StyleSheet.create({
   keyboardRow: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between", // Garder le même espacement pour les lignes 1 et 2
+    justifyContent: "space-between",
+    width: "auto",
   },
   thirdRow: {
     flexDirection: "row",
-    justifyContent: "center", // Centrer les touches restantes
+    justifyContent: "space-between",
+    gap: 10,
+  },
+  lettersContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
-    flexGrow: 1, // Assurer que la ligne prend toute la largeur disponible
-    gap: 2
+    flexGrow: 1,
   },
   adjustedKey: {
-    flexGrow: 1, // Assurer que chaque touche prend un espace égal
-    maxWidth: "10%", // Ajuster la largeur pour correspondre aux autres lignes
-    minWidth: 28, // Empêcher les touches d’être trop petites
-    marginHorizontal: 4, // Ajouter un espacement pour un alignement parfait
+    flexGrow: 1,
+    maxWidth: "10%",
+    minWidth: 28,
+    marginHorizontal: 4, 
+  },
+  functionKey: {
+    flexGrow: 1,
   },
 });

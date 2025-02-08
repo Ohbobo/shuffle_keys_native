@@ -21,12 +21,17 @@ const gameModeSlice = createSlice({
     reducers: {
         setModes(state, action: PayloadAction<number>) {
             state.selectedModeIndex = action.payload;
+            console.log(state)
         },
         selectMode(state, action: PayloadAction<number>) {
             state.selectedModeIndex = action.payload;
+            console.log(state)
+        },
+        resetGameState(state) {
+            return initialState;
         }
     }
 });
 
-export const { setModes, selectMode } = gameModeSlice.actions;
+export const { setModes, selectMode, resetGameState } = gameModeSlice.actions;
 export default gameModeSlice.reducer;

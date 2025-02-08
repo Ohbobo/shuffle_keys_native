@@ -68,8 +68,8 @@ const style = StyleSheet.create({
   keyboardContainer: {
     backgroundColor: "black",
     flexDirection: "column",
-    width: "95%", // Occupe 95% de la largeur du parent, pour laisser un peu de marge
-    maxWidth: 400, // Limite la taille maximale pour éviter les débordements
+    width: "95%",
+    maxWidth: 400,
     gap: 10,
     paddingHorizontal: 10,
     paddingVertical: 12,
