@@ -1,10 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../types/navigationTypes";
 
 export default function HomepageTopNavigation() {
+    const navigation =
+      useNavigation<StackNavigationProp<RootStackParamList, "Profil">>();
+
+      const goToProfil = () => {
+        navigation.navigate('Profil')
+      }
+
   return (
     <View style={style.container}>
-        <Text style={style.text}>O</Text>
+        <Pressable style={style.text} onPress={goToProfil}>
+          <Text>O</Text>
+        </Pressable>
         <View style={style.notificationContainer}>
           <Text style={style.notificationDot}></Text>
           <Ionicons name="notifications" size={20}></Ionicons>

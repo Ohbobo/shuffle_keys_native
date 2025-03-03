@@ -9,15 +9,21 @@ export default function FakeKeyboardContainer({ mode }: { mode: string }) {
 
     const animatedBottom = useRef(new Animated.Value(-200)).current;
 
-    useEffect(() => {
-        animatedBottom.setValue(-200);
-        Animated.timing(animatedBottom, {
-            toValue: -50, // Position finale
-            duration: 200, // Temps en ms (0.2s)
-            easing: Easing.out(Easing.ease), // Animation fluide
-            useNativeDriver: false, // Ne pas utiliser useNativeDriver car on anime un layout
-          }).start();
-    }, [mode]);
+ useEffect(() => {
+    animatedBottom.setValue(-200);
+    const animation = Animated.timing(animatedBottom, {
+      toValue: -50,
+      duration: 200,
+      easing: Easing.out(Easing.ease),
+      useNativeDriver: false,
+    });
+
+    animation.start();
+
+    return() => {
+      animation.stop();
+    }
+  }, [animatedBottom]);
 
   const lettersKeys = mode === "random" ? shuffleArrayToString(letterKeys) : letterKeys;
   const charsKeys = mode === "random" ? shuffleArrayToString(characKeys) : characKeys;

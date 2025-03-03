@@ -13,17 +13,17 @@ import { Ionicons } from "@expo/vector-icons";
 import KeyboardSimpleTouch from "./KeyboardSimpleTouch";
 import KeyboardFunctionTouch from "./KeyboardFunctionTouch";
 import KeyboardSpaceBarContainer from "./KeyboardSpaceBarContainer";
+import { toogleUpperCase } from "../../../store/features/keyboardMode";
 
 export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
   const dispatch = useDispatch();
   const mode = useSelector((state: RootState) => state.modeSliceReducer.value);
+  const { isUpperCase, isCharsKeys } = useSelector((state: RootState) => state.keyboardModeReducer);
 
-  const { keyboardState, toogleUpperCase, toogleCharacKeys, firstLine, secondLine, thirdLine } = useKeyboard({
+  const { firstLine, secondLine, thirdLine } = useKeyboard({
     letterKeys,
     charsKeys,
   });
-
-  const { isCharac, isUpperCase } = keyboardState;
 
   const handleAddLetter = (letter: string) => {
     const letterToAdd = isUpperCase ? letter.toUpperCase() : letter;
@@ -52,7 +52,7 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
       </View>
       <View style={style.thirdRow}>
         <KeyboardFunctionTouch
-          onClick={toogleUpperCase}
+          onClick={() => dispatch(toogleUpperCase())}
           icon={
             isUpperCase ? (
               <Ionicons name="arrow-down-outline"></Ionicons>
@@ -72,7 +72,7 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
               }
             />
           ))}
-          {!isCharac && (
+          {!isCharsKeys && (
             <KeyboardSimpleTouch
               fn={() => handleAddLetter("'")}
               text={
@@ -87,7 +87,7 @@ export default function Keyboard({ letterKeys, charsKeys }: KeyboardProps) {
           style={style.functionKey}
         />
       </View>
-      <KeyboardSpaceBarContainer isChars={isCharac} fn={toogleCharacKeys}/>
+      <KeyboardSpaceBarContainer />
     </View>
   );
 }

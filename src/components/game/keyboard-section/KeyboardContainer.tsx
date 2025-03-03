@@ -12,12 +12,18 @@ export default function KeyboardContainer() {
 
   useEffect(() => {
     animatedBottom.setValue(-200);
-    Animated.timing(animatedBottom, {
+    const animation = Animated.timing(animatedBottom, {
       toValue: 10,
       duration: 200,
       easing: Easing.out(Easing.ease),
       useNativeDriver: false,
-    }).start();
+    });
+
+    animation.start();
+
+    return() => {
+      animation.stop();
+    }
   }, [animatedBottom]);
 
   const mode = useSelector((state: RootState) => state.modeSliceReducer.value) || "classic";

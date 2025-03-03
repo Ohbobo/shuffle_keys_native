@@ -5,11 +5,9 @@ import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { resetGameState } from "../../store/features/links";
 import { stopTimer } from "../../store/features/gameMode";
+import { RootStackParamList } from "../../types/navigationTypes";
 
-interface RootStackParamList {
-  Home: undefined;
-  [key: string]: undefined | object;
-}
+
 export default function BackButtonNavigation({ size }: { size: number }) {
   const dispatch = useDispatch();
   const navigation =

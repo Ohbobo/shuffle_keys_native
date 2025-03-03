@@ -1,8 +1,6 @@
 import { View, StyleSheet } from "react-native";
 import HomepageTopNavigation from "../components/home/HomepageTopNavigation";
 import GameCarousel from "../components/home/GameCarousel";
-import HomePageGameTypeSection from "../components/home/HomePageGameTypeSection";
-import { links } from "../data/links";
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
 
@@ -15,8 +13,7 @@ export default function HomeScreen({ navigation }: { navigation: any }) {
           position: "static",
           bottom: 10,
           alignSelf: "center",
-          width: "90%",
-          borderRadius: 15,
+          width: "100%",
           height: 60,
           backgroundColor: "#272A2D",
           elevation: 5,
