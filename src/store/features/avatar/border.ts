@@ -2,9 +2,9 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
     border: "",
-    borderEffect: "",
-    borderColor: "border-[#202020]",
-    rounded: ""
+    borderWidth: 0,
+    borderColor: "#202020",
+    rounded: 0
 }
 
 const borderSlice = createSlice({
@@ -15,15 +15,15 @@ const borderSlice = createSlice({
         handleChangeBorderColor(state, action: PayloadAction<string>){
             state.borderColor = action.payload;
         },
-        handleChangeBorderRadius(state, action: PayloadAction<string>){
+        handleChangeBorderRadius(state, action: PayloadAction<number>){
             state.rounded = action.payload;
         },
-        handleChangeBorderEffect(state, action: PayloadAction<string>){
-            state.borderEffect = action.payload;
+        handleChangeBorderWidth(state, action: PayloadAction<number>){
+            state.borderWidth = action.payload;
         }
 
     }
 })
 
-export const { handleChangeBorderColor, handleChangeBorderRadius, handleChangeBorderEffect } = borderSlice.actions;
+export const { handleChangeBorderColor, handleChangeBorderRadius, handleChangeBorderWidth } = borderSlice.actions;
 export default borderSlice.reducer;

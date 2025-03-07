@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types/navigationTypes";
+import AvatarCard from "./AvatarCard";
 
 export default function HomepageTopNavigation() {
     const navigation =
@@ -14,8 +15,8 @@ export default function HomepageTopNavigation() {
 
   return (
     <View style={style.container}>
-        <Pressable style={style.text} onPress={goToProfil}>
-          <Text>O</Text>
+        <Pressable onPress={goToProfil}>
+          <AvatarCard />
         </Pressable>
         <View style={style.notificationContainer}>
           <Text style={style.notificationDot}></Text>

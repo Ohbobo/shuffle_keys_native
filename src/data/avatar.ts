@@ -51,4 +51,30 @@ export const iconList = [
     "Shovel",
     "Eye",
     "Sparkles"
-  ];
+];
+
+export const iconColors = [
+    "#DC3B5D",
+    "#DD4425",
+    "#DD93C2",
+    "#CF3897",
+    "#0588F0",
+    "#00A2C7",
+    "#86EAD4",
+    "#0D9B8A",
+    "#FFE629",
+    "#FFFFFF",
+    "#202020",
+]
+
+export const borderColors = [
+    "#E5484D",
+    "#D6409F",
+    "#8E4EC6",
+    "#0090FF",
+    "#29A383",
+    "#F76B15",
+    "#FFC53D",
+    "#FFFFFF",
+    "#202020",
+]
