@@ -5,7 +5,6 @@ import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
 
 export default function HomeScreen({ navigation }: { navigation: any }) {
-
   useFocusEffect(
     useCallback(() => {
       navigation.getParent()?.setOptions({
@@ -15,8 +14,10 @@ export default function HomeScreen({ navigation }: { navigation: any }) {
           alignSelf: "center",
           width: "100%",
           height: 60,
-          backgroundColor: "#272A2D",
+          backgroundColor: "#8ECEAA",
           elevation: 5,
+          borderWidth: 1,
+          borderColor: "black",
         },
       });
     }, [navigation])
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingTop: 20,
-    backgroundColor: "#F9F9F8"
+    backgroundColor: "#C2B5F5",
   },
   text: {
     fontSize: 18,

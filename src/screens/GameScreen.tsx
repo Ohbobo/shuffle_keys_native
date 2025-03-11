@@ -31,8 +31,10 @@ export default function GameScreen({ navigation, route }: { navigation: any, rou
           alignSelf: "center",
           width: "100%",
           height: 60,
-          backgroundColor: "#272A2D",
+          backgroundColor: "#8ECEAA",
           elevation: 5,
+          borderWidth: 1,
+          borderColor: "black",
         },
       });
     }
@@ -57,6 +59,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F6ECC9",
+    backgroundColor: "#C2B5F5",
   },
 });

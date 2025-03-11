@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
 
 import RankingScreen from "../../../screens/RankingScreen";
 import SettingsScreen from "../../../screens/SettingsScreen";
 import HomeStack from "./Stacks";
+import Icon from "../../icon/Icon";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,27 +14,29 @@ export default function NavigationBar() {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
-            const iconName: keyof typeof Ionicons.glyphMap =
+            const iconName =
               route.name === "Home"
-                ? "home-sharp"
+                ? "House"
                 : route.name === "Ranking"
-                ? "trophy-sharp"
+                ? "Medal"
                 : route.name === "Settings"
-                ? "settings-sharp"
+                ? "Settings"
                 : "alert";
 
-            return <Ionicons name={iconName} size={size || 24} color={color} />;
+            return <Icon selectedIcon={iconName} size={size || 24} color={color} />;
           },
-          tabBarActiveTintColor: "#FFE770",
-          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "#8145B5",
+          tabBarInactiveTintColor: "black",
           tabBarStyle: {
             position: "static",
             bottom: 10,
             alignSelf: "center",
             width: "100%",
             height: 60,
-            backgroundColor: "#272A2D",
+            backgroundColor: "#8ECEAA",
             elevation: 5,
+            borderWidth: 1,
+            borderColor: "black"
           },
           tabBarItemStyle: {
             justifyContent: "center",

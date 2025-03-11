@@ -1,18 +1,17 @@
-import { View, StyleSheet, Text } from "react-native";
-import BackButtonNavigation from "../components/global/BackButtonNavigation";
+import { View, StyleSheet, ScrollView } from "react-native";
 import GameCarouselPressableMode from "../components/home/GameCarouselPressableMode";
-import TitleScreen from "../components/global/TitleScreen";
 import RankingsSectionContainer from "../components/rankings/RankingsSectionContainer";
-
+import TitleSection from "../components/global/TitleSection";
 export default function RankingScreen() {
   return (
     <View style={styles.container}>
-      <BackButtonNavigation size={24} />
-      <View>
-        <TitleScreen size={20} title="Classement"/>
-        <GameCarouselPressableMode />
-        <RankingsSectionContainer />
-      </View>
+      <TitleSection iconSize={20} fontSize={30} title="Classement" />
+      <ScrollView>
+        <View>
+          <GameCarouselPressableMode />
+          <RankingsSectionContainer />
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -24,10 +23,10 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     flexDirection: "column",
     gap: 10,
+    backgroundColor: "#C2B5F5",
+    height: "100%",
   },
-  title: {
-
-  },
+  title: {},
   text: {
     fontSize: 18,
     color: "#333",

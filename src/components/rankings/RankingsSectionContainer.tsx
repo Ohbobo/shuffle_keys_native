@@ -1,10 +1,15 @@
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../store/store"
-import { useRankingsQuery } from "../../lib/services/rankingService"
-import RankingRow from "../home/ranking/RankingRow"
-import { useEffect } from "react"
-import { setRankings } from "../../store/features/ranking"
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,  
+} from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { useRankingsQuery } from "../../lib/services/rankingService";
+import RankingRow from "../home/ranking/RankingRow";
+import { useEffect } from "react";
+import { setRankings } from "../../store/features/ranking";
 
 export default function RankingsSectionContainer() {
   const dispatch = useDispatch();
@@ -48,20 +53,26 @@ export default function RankingsSectionContainer() {
         <Text style={styles.noData}>Aucun classement disponible</Text>
       )}
     </View>
-  )
+  );
 }
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    backgroundColor: "#F0F0F0",
-    borderRadius: 15,
+    paddingVertical: 25,
+    paddingHorizontal: 16,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
     flexDirection: "column",
-    gap: 5
+    gap: 15,
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    backgroundColor: "#AA99EC",
+    marginBottom: 10
   },
   noData: {
     fontSize: 14,
     color: "#888",
     textAlign: "center",
   },
-})
+});

@@ -12,11 +12,11 @@ export default function Dropdown({ children, title }: { children: React.ReactEle
 
     return (
         <View style={styles.container}>
-            <Pressable style={[styles.pressableDropdown]} onPress={toogleDropdown}>
+            <Pressable style={[styles.defaultDropdown, isOpen ? styles.activeDropdown : styles.pressableDropdown]} onPress={toogleDropdown}>
                 <Text>{title}</Text>
-                {isOpen ? <Icon size="20" color="black" selectedIcon="ChevronUp" /> : <Icon size="20" color="black" selectedIcon="ChevronDown" />}
+                {isOpen ? <Icon size={20} color="black" selectedIcon="ChevronUp" /> : <Icon size={20} color="black" selectedIcon="ChevronDown" />}
             </Pressable>
-            {isOpen && <View style={styles.dropdownContent}>{children}</View>}
+            {isOpen && <View style={[styles.defaultDropdownContent, isOpen ? styles.activeDropdownContent : styles.dropdownContent]}>{children}</View>}
         </View>
     )
 }
@@ -24,19 +24,43 @@ export default function Dropdown({ children, title }: { children: React.ReactEle
 const styles = StyleSheet.create({
     container: {
         width: 350,
-        gap: 10,
     },
-    pressableDropdown: {
+    defaultDropdown : {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: 'center',
         height: 50,
-        backgroundColor: "white",
+        backgroundColor: "#AA99EC",
+    },
+    defaultDropdownContent: {
         paddingHorizontal: 10,
-        borderRadius: 10
+        flexWrap: "wrap",
+        backgroundColor: "#AA99EC",
+        paddingVertical: 20
+    },
+    pressableDropdown: {
+        borderWidth: 1,
+        paddingHorizontal: 10,
+        borderRadius: 5
     },
     dropdownContent: {
         paddingHorizontal: 10,
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        backgroundColor: "#AA99EC",
+    },
+    activeDropdown: {
+        borderTopWidth: 1,
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
+        paddingHorizontal: 10,
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5,
+    },
+    activeDropdownContent: {
+        borderBottomWidth: 1,
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderBottomLeftRadius: 5,
+        borderBottomRightRadius: 5,
     }
 })

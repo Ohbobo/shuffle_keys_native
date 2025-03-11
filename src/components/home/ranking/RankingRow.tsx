@@ -18,6 +18,11 @@ export default function RankingRow({ index, username, tag, score }: IRanking & {
         backgroundColor: "#E7D9D3"
       }
     }
+    if(index > 2) {
+      return {
+        backgroundColor: "#C2B5F5"
+      }
+    }
   }
 
   return (
@@ -39,10 +44,12 @@ const styles = StyleSheet.create({
   rankItem: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 10,
-    marginBottom: 8,
+    paddingHorizontal: 10,
+    alignItems: "center",
+    height: 60,
     backgroundColor: "#f8f8f8",
-    borderRadius: 8,
+    borderRadius: 5,
+    borderWidth: 1,
   },
   usernameContainer: {
     flexDirection: "row",

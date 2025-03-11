@@ -9,23 +9,6 @@ import BackButtonNavigation from "../../components/global/BackButtonNavigation";
 import AvatarCustomContainer from "../../components/profil/AvatarCustomContainer";
 
 export default function Profil() {
-  const dispatch = useDispatch();
-  const { isGradient, bg, gradient1, gradient2 } = useSelector(
-    (state: RootState) => state.backgroundSliceReducer
-  );
-
-  const { borderEffect, borderColor, rounded } = useSelector(
-    (state: RootState) => state.borderSliceReducer
-  );
-
-  const shadow = useSelector(
-    (state: RootState) => state.shadowSliceReducer.shadow
-  );
-
-  const { color, selectedIcon, iconSize } = useSelector(
-    (state: RootState) => state.iconSliceReducer
-  );
-
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -46,6 +29,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     gap: 20,
+    backgroundColor: "#C2B5F5",
+    height: "100%"
   },
   backContainer: {
     justifyContent: "flex-start",

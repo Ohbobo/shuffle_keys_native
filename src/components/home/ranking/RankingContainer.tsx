@@ -54,10 +54,11 @@ export default function RankingContainer() {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: "#F0F0F0",
-    borderRadius: 15,
+    borderWidth: 1,
+    borderRadius: 5,
     flexDirection: "column",
-    gap: 5
+    gap: 15,
+    backgroundColor: "#AA99EC"
   },
   noData: {
     fontSize: 14,

@@ -1,21 +1,21 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { LinksGroupProps } from "../../types/links";
 import FakeKeyboardContainer from "./fakeKeyboard/FakeKeyboardContainer";
-
 export default function GameCarouselCard({
   description,
   time,
   mode,
+  title
 }: LinksGroupProps) {
   return (
     <View style={styles.carouselCard}>
       <View style={styles.carouselCardContentContainer}>
         <View>
-          <Text style={styles.carouselTitle}>Partie {description}</Text>
+          <Text style={styles.carouselTitle}>Partie </Text>
+          <Text style={[styles.carouselTitleDescription, styles.carouselTitle]}>{title}</Text>
         </View>
-        <View style={styles.time}>
-          <Text>{time}s</Text>
-        </View>
+
+        <Text style={styles.description}>{description}</Text>
       </View>
 
       <FakeKeyboardContainer mode={mode} />
@@ -26,25 +26,35 @@ export default function GameCarouselCard({
 const styles = StyleSheet.create({
   carouselCard: {
     position: "relative",
-    height: 250,
+    height: 350,
     width: "auto",
-    borderRadius: 20,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 20,
-    backgroundColor: "#E9E8E6",
     overflow: "hidden",
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    backgroundColor: "#AA99EC"
   },
   carouselCardContentContainer: {
-    flexDirection: "row",
-    height: "30%",
+    flexDirection: "column",
     width: "100%",
-    alignItems: "center",
-    justifyContent: "space-between",
+    height: "50%",
+    alignItems: "flex-start",
+    gap: 20
   },
   carouselTitle: {
     fontSize: 24,
-    fontWeight: "600",
+  },
+  carouselTitleDescription : {
+    fontWeight: "bold"
+  },
+  description: {
+    width: "60%",
+    color: "#2F265F"
   },
   time: {
     borderWidth: 2,

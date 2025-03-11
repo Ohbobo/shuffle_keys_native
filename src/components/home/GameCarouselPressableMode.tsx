@@ -18,7 +18,7 @@ export default function GameCarouselPressableMode() {
           ]}
           onPress={() => dispatch(selectMode(i))}
         >
-          <Text style={styles.linkText}>{mode.description}</Text>
+          <Text style={styles.linkText}>{mode.title}</Text>
         </Pressable>
       ))}
     </View>
@@ -29,23 +29,28 @@ const styles = StyleSheet.create({
   linksContainer: {
     marginTop: 30,
     flexDirection: "row",
-    width: "90%",
-    borderRadius: 10,
+    width: "auto",
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     justifyContent: "space-between",
     alignItems: "center",
     overflow: "hidden",
-    backgroundColor: "#F1F0EF",
-    padding: 5,
+    borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    height: 60
   },
   linkPressable: {
     color: "#B0B4BA",
     width: "33%",
-    textAlign: "center",
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 10,
+    height: "100%"
   },
   activeLink: {
-    backgroundColor: "#E2E1DE",
-    borderRadius: 10,
+    backgroundColor: "#AA99EC",
     color: "black",
   },
   linkText: {

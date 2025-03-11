@@ -12,18 +12,6 @@ export default function GameCarouselButtonsBar({
 }) {
   return (
     <View style={styles.carouselButtonContainer}>
-      {/* <Pressable
-        style={({ pressed }) => [styles.button, styles.flexOneFourth]}
-        onPress={() => handleChangeGame(previous)}
-      >
-        <Ionicons name="chevron-back" size={20}></Ionicons>
-      </Pressable>
-      <Pressable
-        style={({ pressed }) => [styles.button, styles.flexOneFourth]}
-        onPress={() => handleChangeGame(next)}
-      >
-        <Ionicons name="chevron-forward" size={20}></Ionicons>
-      </Pressable> */}
       <Pressable
         style={({ pressed }) => [styles.button, styles.flexTwoFourth]}
         onPress={() =>
@@ -46,11 +34,11 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: 5,
   },
   flexOneFourth: {
     flex: 1,
-    borderRadius: 15,
+    borderRadius: 5,
     borderWidth: 1,
     borderColor: "#CFCECA"
   },
@@ -58,7 +46,7 @@ const styles = StyleSheet.create({
     flex: 2,
     flexDirection: "row",
     gap: 5,
-    borderRadius: 15,
+    borderRadius: 5,
     backgroundColor: "black",
   },
   textButton: {

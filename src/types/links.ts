@@ -7,10 +7,11 @@ export interface ModeState {
 }
 
 export interface LinksGroupProps {
-    description: string;
+    title: string;
     mode: Mode;
     path?: string;
     time: number;
+    description: string;
 }
 
 export interface LinksProps {

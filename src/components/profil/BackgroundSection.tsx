@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   gradientButton: {
-    color: "blue",
+    color: "#2A7E3B",
   },
   button: {
     width: 30,

@@ -10,8 +10,7 @@ import { RootStackParamList } from "../../types/navigationTypes";
 
 export default function BackButtonNavigation({ size }: { size: number }) {
   const dispatch = useDispatch();
-  const navigation =
-    useNavigation<StackNavigationProp<RootStackParamList, "Home">>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, "Home">>();
 
   const backToHome = () => {
     dispatch(stopTimer())
@@ -28,6 +27,12 @@ export default function BackButtonNavigation({ size }: { size: number }) {
 
 const styles = StyleSheet.create({
     pressable: {
-      width: "33%",
+      height: 40,
+      width: 40,
+      borderWidth: 1,
+      borderRadius: 5,
+      backgroundColor: "#8ECEAA",
+      justifyContent: "center",
+      alignItems: "center"
     }
 })

@@ -23,6 +23,21 @@ export default function BorderSection({
     <Dropdown title="Bordure">
       <View>
         <View style={styles.subDropdownContainer}>
+          <Text>Arrondi de la bordure: </Text>
+          <View style={styles.iconsContainer}>
+            <Slider
+              style={{ width: 200, height: 40 }}
+              value={rounded}
+              minimumValue={0}
+              maximumValue={50}
+              step={1}
+              onValueChange={(value) =>
+                dispatch(handleChangeBorderRadius(value))
+              }
+            />
+          </View>
+        </View>
+        <View style={styles.subDropdownContainer}>
           <Text>Taille de la bordure: {borderWidth}</Text>
           <View style={styles.iconsContainer}>
             <Slider
@@ -39,21 +54,6 @@ export default function BorderSection({
         </View>
         {borderWidth > 0 && (
           <>
-            <View style={styles.subDropdownContainer}>
-              <Text>Arrondi de la bordure: </Text>
-              <View style={styles.iconsContainer}>
-                <Slider
-                  style={{ width: 200, height: 40 }}
-                  value={rounded}
-                  minimumValue={0}
-                  maximumValue={50}
-                  step={1}
-                  onValueChange={(value) =>
-                    dispatch(handleChangeBorderRadius(value))
-                  }
-                />
-              </View>
-            </View>
             <View style={styles.subDropdownContainer}>
               <Text>Couleur de la bordure: </Text>
               <View style={styles.iconsContainer}>

@@ -26,18 +26,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     position: "relative",
-    marginTop: 20,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#C2B5F5",
   },
   phoneContainer: {
     position: "relative",
     width: "100%", // Largeur d'un iPhone standard
     height: "100%", // Hauteur d'un iPhone standard
     overflow: "hidden",
-    borderColor: "#000",
   },
   text: {
     fontSize: 16,

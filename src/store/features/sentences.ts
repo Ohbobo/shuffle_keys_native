@@ -21,7 +21,6 @@ export const sentenceSlice = createSlice({
         },
         addSpace: (state) => {
             state.value += " ";
-            console.log(state.value);
         }
     }
 });

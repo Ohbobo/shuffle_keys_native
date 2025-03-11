@@ -1,6 +1,6 @@
 import * as LucideIcons from "lucide-react-native";
 
-export default function Icon({ selectedIcon, color, size }: { selectedIcon: string, color: string, size: string }) {
+export default function Icon({ selectedIcon, color, size }: { selectedIcon: string, color: string, size: number }) {
   const LucideIcon =
     (LucideIcons as unknown as Record<string, React.ElementType>)[
       selectedIcon
